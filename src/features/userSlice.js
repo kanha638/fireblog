@@ -66,6 +66,18 @@ export const userSlice = createSlice({
       state.isErrors = true;
       state.isPending = false;
     },
+    UpladBlogStart: (state, action) => {
+      state.isErrors = false;
+      state.isPending = true;
+    },
+    UploadBlogSuccess: (state) => {
+      state.isErrors = false;
+      state.isPending = false;
+    },
+    UploadBlogError: (state, action) => {
+      state.isErrors = true;
+      state.isPending = false;
+    },
   },
 });
 
@@ -79,6 +91,10 @@ export const {
   LogoutStart,
   LogoutSuccess,
   LogoutError,
+  UpladBlogStart,
+  UploadBlogError,
+  UploadBlogSuccess,
 } = userSlice.actions;
 export const UserState = (state) => state.user;
+export const selectUser = (state) => state.user.userInfo;
 export default userSlice.reducer;

@@ -58,7 +58,11 @@ export const SignIn = async (data, dispatch, navigate) => {
       data.password
     );
     dispatch(SignInSuccess(userData?.user));
-    navigate("/");
+    if (document.location.pathname === "auth") {
+      navigate("/");
+    } else {
+      navigate(document.location.pathname);
+    }
   } catch (error) {
     dispatch(SignInError(error.respnse));
     console.log(error);
@@ -70,6 +74,7 @@ export const LogOut = async (dispatch, navigate) => {
   try {
     await signOut(auth);
     dispatch(LogoutSuccess());
+
     navigate("/auth");
   } catch (error) {
     dispatch(LogoutError(error.response));
