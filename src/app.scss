@@ -57,6 +57,11 @@ button {
   transition: transform 80ms ease-in;
   cursor: pointer;
 }
+button:disabled {
+  cursor: not-allowed;
+  background-color: gray;
+  border: black;
+}
 
 button:active {
   transform: scale(0.95);
@@ -326,7 +331,8 @@ nav ul li a {
 }
 a.active,
 a:hover {
-  background: #e03c13;
+  background: #ff416c;
+  color: #fff;
   transition: 0.5s;
 }
 .checkbtn {
@@ -345,10 +351,9 @@ a:hover {
   float: right;
   line-height: 80px;
   margin-right: 40px;
-  // position: absoluste;
   cursor: pointer;
-  // right: 0;
   display: none;
+  z-index: 3;
 }
 #check {
   display: none;

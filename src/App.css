@@ -70,6 +70,12 @@ button {
   cursor: pointer;
 }
 
+button:disabled {
+  cursor: not-allowed;
+  background-color: gray;
+  border: black;
+}
+
 button:active {
   -webkit-transform: scale(0.95);
           transform: scale(0.95);
@@ -429,7 +435,8 @@ nav ul li a {
 
 a.active,
 a:hover {
-  background: #e03c13;
+  background: #ff416c;
+  color: #fff;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -453,6 +460,7 @@ a:hover {
   margin-right: 40px;
   cursor: pointer;
   display: none;
+  z-index: 3;
 }
 
 #check {

@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Navigate, useNavigate } from "react-router-dom";
+import { SignIn, SignUp } from "../api/auth";
+import { UserState } from "../features/userSlice";
 
 const initialFormSignup = {
   firstName: "",
@@ -12,28 +16,32 @@ const initialFormSignIn = {
   password: "",
 };
 const Auth = () => {
+  const dispatch = useDispatch();
   const [signUpForm, setSignUpForm] = useState(initialFormSignup);
   const [signInForm, setSignInForm] = useState(initialFormSignIn);
+  const userState = useSelector(UserState);
+  const navigate = useNavigate();
   const changeHandlerSignUp = (e) => {
     setSignUpForm({ ...signUpForm, [e.target.name]: e.target.value });
   };
-  const submitHandlerSignUp = (e) => {
+  const submitHandlerSignUp = async (e) => {
     e.preventDefault();
+    await SignUp(signUpForm, dispatch, navigate);
     console.log(signUpForm);
   };
   const changeHandlerSignIn = (e) => {
     setSignInForm({ ...signInForm, [e.target.name]: e.target.value });
     console.log(signInForm);
   };
-  const submitHandlerSignIn = (e) => {
+  const submitHandlerSignIn = async (e) => {
     e.preventDefault();
+    await SignIn(signInForm, dispatch, navigate);
     console.log(signInForm);
   };
   return (
     <>
       <div className="main-container-full">
         <div className="auth-container" id="auth-container">
-          <pre>{signUpForm.firstName}</pre>
           <div className="form-container sign-up-container">
             <form onSubmit={submitHandlerSignUp}>
               <h1>Create Account</h1>
@@ -69,7 +77,12 @@ const Auth = () => {
                 placeholder="Confirm Password"
                 onChange={changeHandlerSignUp}
               />
-              <button style={{ marginTop: "15px" }} type="submit">
+              <button
+                style={{ marginTop: "15px" }}
+                type="submit"
+                // disabled={false}
+                disabled={userState?.isPending}
+              >
                 Sign Up
               </button>
             </form>
@@ -92,7 +105,9 @@ const Auth = () => {
                 onChange={changeHandlerSignIn}
               />
               <a>Forgot your password?</a>
-              <button type="submit">Sign In</button>
+              <button type="submit" disabled={userState?.isPending}>
+                Sign In
+              </button>
             </form>
           </div>
           <div className="overlay-container">
