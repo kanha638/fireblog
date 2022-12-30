@@ -28,7 +28,7 @@ Feilds of `.env` files are below
 
 `REACT_APP_authDomain = `
 
-`REACT_APP_projectId = `  
+`REACT_APP_projectId = `
 
 `REACT_APP_storageBucket = `
 
