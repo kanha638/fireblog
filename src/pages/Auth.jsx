@@ -27,16 +27,13 @@ const Auth = () => {
   const submitHandlerSignUp = async (e) => {
     e.preventDefault();
     await SignUp(signUpForm, dispatch, navigate);
-    console.log(signUpForm);
   };
   const changeHandlerSignIn = (e) => {
     setSignInForm({ ...signInForm, [e.target.name]: e.target.value });
-    console.log(signInForm);
   };
   const submitHandlerSignIn = async (e) => {
     e.preventDefault();
     await SignIn(signInForm, dispatch, navigate);
-    console.log(signInForm);
   };
   return (
     <>
@@ -46,7 +43,12 @@ const Auth = () => {
             <form onSubmit={submitHandlerSignUp}>
               <h1>Create Account</h1>
               <div className="social-container"></div>
-              {/* <span>Use your email for registration</span> */}
+              {document.location.pathname !== "/auth" && (
+                <span style={{ color: "red" }}>
+                  You need to signin/signup to access this page{" "}
+                </span>
+              )}
+
               <input
                 type="text"
                 name="firstName"
@@ -91,7 +93,11 @@ const Auth = () => {
             <form onSubmit={submitHandlerSignIn}>
               <h1>Sign in</h1>
               <div className="social-container"></div>
-              {/* <span>or use your account</span> */}
+              {document.location.pathname !== "/auth" && (
+                <span style={{ color: "red" }}>
+                  You need to signin/signup to access this page{" "}
+                </span>
+              )}
               <input
                 type="email"
                 name="email"

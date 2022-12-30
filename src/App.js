@@ -10,10 +10,13 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Error404 from "./components/Error404";
 import CreateBlog from "./pages/CreateBlog";
 import Home from "./pages/Home";
-import { SetLoggedInUser } from "./features/userSlice";
+import { SetLoggedInUser, UserState } from "./features/userSlice";
+import { useSelector } from "react-redux";
+import Profile from "./pages/Profile";
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const userState = useSelector(UserState);
   useEffect(() => {
     console.log("app loading");
     const loader = document.getElementById("loading");
@@ -40,9 +43,15 @@ function App() {
             <Navbar />
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/auth" element={<Auth />} />
-              <Route path="/auth" element={<Auth />} />
-              <Route path="/create" element={<CreateBlog />} />
+              <Route
+                path="/auth"
+                element={userState.isLoggedIn ? <Home /> : <Auth />}
+              />
+              <Route
+                path="/create"
+                element={userState.isLoggedIn ? <CreateBlog /> : <Auth />}
+              />{" "}
+              <Route path="/user/:id/*" element={<Profile />} />
               <Route path="/*" element={<Error404 />} />
             </Routes>
 

@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { LogOut } from "../api/auth";
-import { UserState } from "../features/userSlice";
+import { selectUser, UserState } from "../features/userSlice";
 
 export const Navbar = () => {
   const userState = useSelector(UserState);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const user = useSelector(selectUser);
   const logoutHandler = async () => {
     await LogOut(dispatch, navigate);
   };
@@ -52,7 +53,9 @@ export const Navbar = () => {
           </li>
         )}
         {userState?.isLoggedIn ? (
-          <li>{userState?.userInfo?.displayName}</li>
+          <Link to={`/user/${user.uid}`}>
+            <li>{userState?.userInfo?.displayName}</li>
+          </Link>
         ) : (
           <li>
             <Link
