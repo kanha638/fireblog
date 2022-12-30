@@ -15,7 +15,9 @@ import {
 } from "firebase/firestore";
 import { useState } from "react";
 import "./App.css";
+import Footer from "./components/Footer";
 import { auth, db } from "./firebase/firebase-config";
+import Auth from "./pages/Auth";
 
 function App() {
   const [email, setEmail] = useState("");
@@ -46,38 +48,9 @@ function App() {
     // console.log("data : ", data);
   };
   return (
-    <div
-      className="App"
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <form
-        onSubmit={submitHandler}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "20px",
-          width: "50%",
-          marginTop: "40px",
-        }}
-      >
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-        />
-        <button type="submit"> Submit </button>
-      </form>
+    <div className="App">
+      <Auth />
+      <Footer />
     </div>
   );
 }
