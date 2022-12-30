@@ -1,23 +1,13 @@
-import {
-  createUserWithEmailAndPassword,
-  signInWithCredential,
-  signInWithEmailAndPassword,
-  updateProfile,
-} from "firebase/auth";
-import {
-  addDoc,
-  collection,
-  getDoc,
-  doc,
-  serverTimestamp,
-  query,
-  where,
-} from "firebase/firestore";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { useState } from "react";
 import "./App.css";
 import Footer from "./components/Footer";
+import { Navbar } from "./components/Navbar";
 import { auth, db } from "./firebase/firebase-config";
 import Auth from "./pages/Auth";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Error404 from "./components/Error404";
 
 function App() {
   const [email, setEmail] = useState("");
@@ -49,8 +39,15 @@ function App() {
   };
   return (
     <div className="App">
-      <Auth />
-      <Footer />
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/*" element={<Error404 />} />
+        </Routes>
+
+        <Footer />
+      </Router>
     </div>
   );
 }
