@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchBlogs } from "../api/blog";
 import { selectUser, UserState } from "../features/userSlice";
 import SearchIcon from "@mui/icons-material/Search";
-import { useParams, useSearchParams } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import { sortByLikeCount, sortByTimeStamp } from "../utility/Filters";
 
 const BlogList = ({ category }) => {
@@ -115,8 +115,8 @@ const BlogList = ({ category }) => {
             {Blogs.map((data, idx) => {
               return (
                 <div className="item-1" key={idx}>
-                  <a
-                    href="https://design.tutsplus.com/articles/international-artist-feature-malaysia--cms-26852"
+                  <div
+                    // href="https://design.tutsplus.com/articles/international-artist-feature-malaysia--cms-26852"
                     className="card"
                   >
                     <div
@@ -124,12 +124,13 @@ const BlogList = ({ category }) => {
                       style={{ backgroundImage: `url(${data?.img_urn})` }}
                     ></div>
                     <article>
-                      <h1>{data?.title}</h1>
-
+                      <Link to="#">
+                        <h1>{data?.title}</h1>
+                      </Link>
                       <span>{data?.authorInfo?.displayName}</span>
                       <span> {data?.likeCount} likes</span>
                     </article>
-                  </a>
+                  </div>
                 </div>
               );
             })}
