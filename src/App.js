@@ -13,6 +13,7 @@ import Home from "./pages/Home";
 import { SetLoggedInUser, UserState } from "./features/userSlice";
 import { useSelector } from "react-redux";
 import Profile from "./pages/Profile";
+import EditBlog from "./pages/EditBlog";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -46,6 +47,10 @@ function App() {
               <Route
                 path="/auth"
                 element={userState.isLoggedIn ? <Home /> : <Auth />}
+              />
+              <Route
+                path="/edit/:id"
+                element={userState?.isLoggedIn ? <EditBlog /> : <Auth />}
               />
               <Route
                 path="/create"
