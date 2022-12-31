@@ -1,3 +1,4 @@
+import { Avatar } from "@mui/material";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -40,21 +41,39 @@ export const Navbar = () => {
             Create
           </Link>
         </li>{" "}
-        {userState?.isLoggedIn && (
-          <li>
-            <Link
-              // to="/auth"
-              onClick={() => {
-                logoutHandler();
-              }}
-            >
-              LOGOUT
-            </Link>
-          </li>
-        )}
         {userState?.isLoggedIn ? (
           <Link to={`/user/${user.uid}`}>
-            <li>{userState?.userInfo?.displayName}</li>
+            <li
+              style={{
+                marginLeft: 20,
+                textAlign: "center",
+                position: "relative",
+              }}
+              id="avatarUser"
+            >
+              <Avatar
+                className="dropbtn"
+                alt={user?.displayName}
+                src={user.photoURL}
+                sx={{ width: 40, height: 40 }}
+              />
+              <div class="dropdown-content">
+                <Link to={`/user/${user.uid}`} style={{ padding: "0" }}>
+                  {" "}
+                  Profile
+                </Link>
+                {userState?.isLoggedIn && (
+                  <Link
+                    // to="/auth"
+                    onClick={() => {
+                      logoutHandler();
+                    }}
+                  >
+                    LOGOUT
+                  </Link>
+                )}
+              </div>
+            </li>
           </Link>
         ) : (
           <li>
