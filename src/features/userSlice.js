@@ -22,6 +22,7 @@ export const userSlice = createSlice({
   initialState: {
     userInfo: JSON.parse(localStorage.getItem("userInfo")) || null,
     isPending: false,
+    Blogs: [],
     isLoggedIn: JSON.parse(localStorage.getItem("isLoggedIn")) || false,
     isErrors: false,
   },
@@ -78,6 +79,51 @@ export const userSlice = createSlice({
       state.isErrors = true;
       state.isPending = false;
     },
+    UpdateUserProfileStart: (state) => {
+      state.isErrors = false;
+      state.isPending = true;
+    },
+    UpdateUserProfileSuccess: (state, action) => {
+      state.isErrors = false;
+      state.isPending = false;
+      state.userInfo.displayName = action.payload.displayName;
+      state.userInfo.email = action.payload.email;
+      localStorage.setItem("user", JSON.stringify(state.userInfo));
+    },
+    UpdateUserProfileError: (state, action) => {
+      state.isErrors = true;
+      state.isPending = false;
+    },
+    ImageUpdateStart: (state) => {
+      state.isPending = true;
+      state.isErrors = false;
+    },
+    ImageUpdateSuccess: (state, action) => {
+      state.isErrors = false;
+      state.isPending = false;
+      state.userInfo.photoURL = action.payload.url;
+      localStorage.setItem("user", JSON.stringify(state.userInfo));
+    },
+    ImageUpdateError: (state, action) => {
+      state.isErrors = true;
+      state.isPending = false;
+    },
+    FetchBlogStart: (state) => {
+      state.isPending = true;
+      state.isErrors = false;
+    },
+    FetchBlogSuccess: (state, action) => {
+      state.isErrors = false;
+      state.isPending = false;
+      state.Blogs = action.payload;
+    },
+    FetchBlogError: (state, action) => {
+      state.isErrors = true;
+      state.isPending = false;
+    },
+    BlogsUpdater: (state, action) => {
+      state.Blogs = action.payload;
+    },
   },
 });
 
@@ -94,6 +140,16 @@ export const {
   UpladBlogStart,
   UploadBlogError,
   UploadBlogSuccess,
+  UpdateUserProfileStart,
+  UpdateUserProfileSuccess,
+  UpdateUserProfileError,
+  ImageUpdateError,
+  ImageUpdateStart,
+  ImageUpdateSuccess,
+  FetchBlogError,
+  FetchBlogStart,
+  FetchBlogSuccess,
+  BlogsUpdater,
 } = userSlice.actions;
 export const UserState = (state) => state.user;
 export const selectUser = (state) => state.user.userInfo;

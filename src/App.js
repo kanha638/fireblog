@@ -42,7 +42,7 @@ function App() {
           <Router>
             <Navbar />
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/*" element={<Home />} />
               <Route
                 path="/auth"
                 element={userState.isLoggedIn ? <Home /> : <Auth />}
@@ -52,7 +52,7 @@ function App() {
                 element={userState.isLoggedIn ? <CreateBlog /> : <Auth />}
               />{" "}
               <Route path="/user/:id/*" element={<Profile />} />
-              <Route path="/*" element={<Error404 />} />
+              {/* <Route path="/*" element={<Error404 />} /> */}
             </Routes>
 
             <Footer />

@@ -47,6 +47,10 @@ const CreateBlog = () => {
           category: blogForm.category,
           image: file,
           uid: user.uid,
+          authorInfo: {
+            displayName: user.displayName,
+            photoURL: user.photoURL,
+          },
         },
         dispatch,
         navigate
@@ -85,7 +89,7 @@ const CreateBlog = () => {
           <option value="others">Others</option>
           <option value="politics">Politics</option>
           <option value="sports">Sports</option>
-          <option value="health">Technology</option>
+          <option value="technology">Technology</option>
           <option value="health">Health</option>
           <option value="music">Music</option>
           <option value="bollywood">Bollywood</option>
