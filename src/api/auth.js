@@ -38,7 +38,7 @@ export const SignUp = async (data, dispatch, navigate) => {
     await updateProfile(user, {
       displayName: `${data?.firstName} ${data?.lastName}`,
     });
-    await addDoc(collection(db, "userCollection"), {
+    await addDoc(collection(db, "userCollection", user.uid), {
       uid: user.uid,
       followers: [],
       following: [],

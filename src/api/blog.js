@@ -44,6 +44,7 @@ export const UploadBlog = async (data, dispatch, navigate) => {
       timeStamp: serverTimestamp(),
     });
     dispatch(UploadBlogSuccess());
+
     navigate("/");
   } catch (error) {
     dispatch(UploadBlogError(error.response));
@@ -91,7 +92,6 @@ export const UpdateBlog = async (data, dispatch, navigate) => {
       const imageRef = ref(storage, `/blogImages/${data.uid + v4()}`);
       await uploadBytes(imageRef, data.image);
       const blogRef = doc(db, "blogs", data.id);
-
       updateDoc(blogRef, {
         title: data.title,
         description: data.description,
