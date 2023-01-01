@@ -20,7 +20,7 @@ const BlogList = () => {
   const [flag, setFLag] = useState(false);
   const category =
     document.location.pathname === "/"
-      ? null
+      ? ""
       : document.location.pathname.slice(1);
   const fetchBlog = async () => {
     await fetchBlogs(
@@ -30,7 +30,6 @@ const BlogList = () => {
       dispatch,
       setBlogs
     );
-    // setBlogs(userState?.Blogs);
     setAllBlogs(userState?.Blogs);
   };
   const FilterSubmitHandler = (e) => {
@@ -128,7 +127,7 @@ const BlogList = () => {
                       style={{ backgroundImage: `url(${data?.img_urn})` }}
                     ></div>
                     <article>
-                      <Link to="#">
+                      <Link to={`blog/${data?.id}`}>
                         <h1>{data?.title}</h1>
                       </Link>
                       <span>{data?.authorInfo?.displayName}</span>
