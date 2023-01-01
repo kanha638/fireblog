@@ -3,11 +3,12 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUser, UserState } from "../features/userSlice";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase/firebase-config";
 import { checkIfPresentInArray } from "../utility/Filters";
 import { CommentOnBlog, LikeTheBlog } from "../api/blog";
+import EditIcon from "@mui/icons-material/Edit";
 import ReactTimeAgo from "react-time-ago";
 
 const initialState = {
@@ -153,6 +154,20 @@ const BlogDescription = () => {
                         sx={{ marginLeft: "10px" }}
                       />
                     </button>
+                  )}
+
+                  {blogData?.authorID == user?.uid && (
+                    <Link to={`/edit/${id}`}>
+                      <button
+                        style={{
+                          color: "white",
+                          backgroundColor: "blue",
+                          border: "none",
+                        }}
+                      >
+                        <EditIcon />
+                      </button>
+                    </Link>
                   )}
                 </div>
               </div>
