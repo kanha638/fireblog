@@ -88,6 +88,7 @@ export const userSlice = createSlice({
       state.isPending = false;
       state.userInfo.displayName = action.payload.displayName;
       state.userInfo.email = action.payload.email;
+      state.userInfo.description = action.payload.description;
       localStorage.setItem("user", JSON.stringify(state.userInfo));
     },
     UpdateUserProfileError: (state, action) => {

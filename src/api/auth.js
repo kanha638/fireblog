@@ -22,7 +22,13 @@ import {
   ImageUpdateSuccess,
 } from "../features/userSlice";
 import { auth, db, storage } from "../firebase/firebase-config";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import {
+  updateDoc,
+  serverTimestamp,
+  setDoc,
+  getDoc,
+  doc,
+} from "firebase/firestore";
 import { v4 } from "uuid";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
@@ -38,19 +44,30 @@ export const SignUp = async (data, dispatch, navigate) => {
     await updateProfile(user, {
       displayName: `${data?.firstName} ${data?.lastName}`,
     });
-    await addDoc(collection(db, "userCollection", user.uid), {
+    await setDoc(doc(db, "userCollection", user.uid), {
       uid: user.uid,
+      description: `Hello I am ${user?.displayName}`,
       followers: [],
       following: [],
       timestamp: serverTimestamp(),
     });
+
     // First Time User will be Signed In
     const userData = await signInWithEmailAndPassword(
       auth,
       data.email,
       data.password
     );
-    dispatch(SignInSuccess(userData?.user));
+    let result = await getDoc(doc(db, "userCollection", user.uid));
+    result = result.data();
+
+    let result1 = userData?.user;
+    result1 = { ...result1, description: result.description };
+    result1 = { ...result1, followers: result.followers };
+    result1 = { ...result1, following: result.following };
+    console.log(result1);
+
+    dispatch(SignInSuccess(result1));
     navigate("/");
   } catch (error) {
     dispatch(SignUpError(error.response));
@@ -66,7 +83,16 @@ export const SignIn = async (data, dispatch, navigate) => {
       data.email,
       data.password
     );
-    dispatch(SignInSuccess(userData?.user));
+    let result = await getDoc(doc(db, "userCollection", userData?.user.uid));
+    result = result.data();
+    let result1 = userData?.user;
+    result1 = { ...result1, description: result.description };
+    result1 = { ...result1, followers: result.followers };
+    result1 = { ...result1, following: result.following };
+    console.log(result1);
+
+    dispatch(SignInSuccess(result1));
+
     console.log(document.location.pathname);
     if (document.location.pathname === "auth") {
       navigate("/");
@@ -98,6 +124,9 @@ export const UpdateProfile = async (data, dispatch) => {
       displayName: data.displayName,
     });
     await updateEmail(auth.currentUser, data.email);
+    await updateDoc(doc(db, "userCollection", data.uid), {
+      description: data.description,
+    });
     dispatch(UpdateUserProfileSuccess(data));
   } catch (error) {
     dispatch(UpdateUserProfileError(error.response));

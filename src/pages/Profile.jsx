@@ -19,6 +19,7 @@ const Profile = () => {
   const dispatch = useDispatch();
   const userState = useSelector(UserState);
   const [form, setForm] = useState({
+    uid: user.uid,
     displayName: user.displayName,
     email: user.email,
     description: user.description,
