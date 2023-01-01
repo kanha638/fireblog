@@ -51,6 +51,7 @@ const CreateBlog = () => {
             displayName: user.displayName,
             photoURL: user.photoURL,
           },
+          followers: user.followers,
         },
         dispatch,
         navigate

@@ -1050,4 +1050,471 @@ a.active {
     font-size: 24px;
   }
 }
+
+.user-card-container {
+  width: 100%;
+  max-height: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  padding-top: 20px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  overflow: scroll;
+}
+
+.user-card-container .user-card {
+  padding: 5px;
+  width: 70%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: solid 0.5px gray;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.user-card-container .user-card span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: bolder;
+  letter-spacing: 0.7px;
+  color: gray;
+}
+
+.user-card-container .user-card button {
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.user-card-container .user-card .following {
+  background-color: gray;
+  color: black;
+  border: none;
+}
+
+.user-card-container .user-card.first {
+  margin-top: 130px;
+}
+
+.BlogDescriptionContainer {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  width: 80%;
+  height: 100vh;
+  min-width: 700px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: scroll;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .authorDetailContainer {
+  width: 100%;
+  padding-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .authorDetailContainer .profileDetails {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .authorDetailContainer .profileDetails img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .authorDetailContainer .profileDetails .nameAndDateContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .authorDetailContainer .profileDetails .nameAndDateContainer span {
+  color: gray;
+  font-weight: 600;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .authorDetailContainer .blogDataAnalyticsContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  gap: 15px;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .authorDetailContainer .blogDataAnalyticsContainer .likeCountContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .authorDetailContainer .blogDataAnalyticsContainer .likeCountContainer span {
+  color: gray;
+  font-size: 15px;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .authorDetailContainer .blogDataAnalyticsContainer .likeCountContainer span.count {
+  color: black;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .authorDetailContainer .blogDataAnalyticsContainer button {
+  background-color: #ff416c;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 10px;
+  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .BlogDetailsContainer {
+  padding-top: 20px;
+  width: 100%;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .BlogDetailsContainer img {
+  width: 100%;
+  max-height: 400px;
+  margin-bottom: 20px;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .BlogDetailsContainer .blogTitle {
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bolder;
+  letter-spacing: 1px;
+  padding-top: 20px;
+  font-size: 2rem;
+  padding-bottom: 20px;
+  color: #2e2c2c;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .BlogDetailsContainer pre {
+  word-wrap: break-word;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .BlogDetailsContainer .blogDesc {
+  font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
+  white-space: normal;
+  font-size: 22px;
+  line-height: 31px;
+  letter-spacing: -0.003em;
+  color: #0f0d0d;
+  margin-bottom: 120px;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .BlogDetailsContainer .commentsContainer {
+  width: 100%;
+  min-height: 20vh;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .BlogDetailsContainer .commentsContainer span {
+  font-size: 15px;
+  color: gray;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .BlogDetailsContainer .commentsContainer .commentBoxContainer {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #e4e1e1;
+  border-radius: 10px;
+  gap: 5px;
+  padding: 5px;
+  overflow: scroll;
+  margin-bottom: 140px;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .BlogDetailsContainer .commentsContainer .commentBoxContainer .commentBox {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 0px;
+  background-color: #fff7f7;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .BlogDetailsContainer .commentsContainer .commentBoxContainer .commentBox .userInfo1Container {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 5px;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .BlogDetailsContainer .commentsContainer .commentBoxContainer .commentBox .userInfo1Container img {
+  margin-bottom: 0px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .BlogDetailsContainer .commentsContainer .commentBoxContainer .commentBox .userInfo1Container .nameAndDateContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 4px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .BlogDetailsContainer .commentsContainer .commentBoxContainer .commentBox .userInfo1Container .nameAndDateContainer span {
+  font-size: 7px;
+  color: #222;
+  font-weight: 600;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .BlogDetailsContainer .commentsContainer .commentBoxContainer .commentBox .comment {
+  padding-left: 10px;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .BlogDetailsContainer .commentsContainer .commentBoxContainer .commentBox .comment pre {
+  white-space: pre-wrap;
+  font-family: inherit;
+  color: #866767;
+}
+
+@media only screen and (max-width: 1050px) {
+  .BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .BlogDetailsContainer .commentsContainer .commentBoxContainer {
+    margin-bottom: 40px;
+  }
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .BlogDetailsContainer .commentsContainer .commentFormContainer {
+  width: 100%;
+  margin-top: 50px;
+  background-color: inherit;
+  padding-bottom: 20px;
+  display: none;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .BlogDetailsContainer .commentsContainer .commentFormContainer form {
+  width: 100%;
+  background-color: inherit;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .BlogDetailsContainer .commentsContainer .commentFormContainer form textarea {
+  width: 100%;
+  border: none;
+  outline: solid 1px #e90036;
+}
+
+.BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .BlogDetailsContainer .commentsContainer .commentFormContainer form button {
+  width: 100%;
+  margin-top: 30px;
+}
+
+@media only screen and (max-width: 1050px) {
+  .BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .BlogDetailsContainer .commentsContainer .commentFormContainer {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  .BlogDescriptionContainer .MainBlogDisplayContainer {
+    min-width: 260px;
+    width: 95%;
+  }
+}
+
+.BlogDescriptionContainer .sideBarContainer {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  overflow: hidden;
+  min-width: 350px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-left: solid 1px #a39e9e;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  width: 100%;
+}
+
+.BlogDescriptionContainer .sideBarContainer .authorProfileContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+
+.BlogDescriptionContainer .sideBarContainer .authorProfileContainer img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.BlogDescriptionContainer .sideBarContainer .authorProfileContainer button {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.BlogDescriptionContainer .sideBarContainer .commentFormContainer {
+  width: 100%;
+  margin-top: 50px;
+  background-color: inherit;
+  padding-bottom: 20px;
+}
+
+.BlogDescriptionContainer .sideBarContainer .commentFormContainer form {
+  width: 100%;
+  background-color: inherit;
+}
+
+.BlogDescriptionContainer .sideBarContainer .commentFormContainer form textarea {
+  width: 100%;
+  border: none;
+  outline: solid 1px #e90036;
+}
+
+.BlogDescriptionContainer .sideBarContainer .commentFormContainer form button {
+  width: 100%;
+  margin-top: 30px;
+}
+
+@media only screen and (max-width: 1050px) {
+  .BlogDescriptionContainer .sideBarContainer {
+    position: absolute;
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  .BlogDescriptionContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    overflow: scroll;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+  }
+}
 /*# sourceMappingURL=app.css.map */

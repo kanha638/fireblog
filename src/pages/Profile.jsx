@@ -11,6 +11,7 @@ import { selectUser, UserState } from "../features/userSlice";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Error404 from "../components/Error404";
 import { UpdateProfile, UserImageUpload } from "../api/auth";
+import { UserList } from "../components/UserList";
 
 const Profile = () => {
   const user = useSelector(selectUser);
@@ -144,30 +145,8 @@ const Profile = () => {
                   </form>
                 }
               />
-              <Route
-                path="/followers"
-                element={
-                  <div
-                    style={{
-                      color: "black",
-                    }}
-                  >
-                    Follwers page
-                  </div>
-                }
-              />
-              <Route
-                path="/following"
-                element={
-                  <div
-                    style={{
-                      color: "black",
-                    }}
-                  >
-                    Follwing page
-                  </div>
-                }
-              />
+              <Route path="/followers" element={<UserList />} />
+              <Route path="/following" element={<UserList />} />
             </Routes>
           </Box>
         </div>

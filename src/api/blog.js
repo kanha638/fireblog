@@ -30,9 +30,10 @@ export const UploadBlog = async (data, dispatch, navigate) => {
   dispatch(UpladBlogStart());
   try {
     console.log(data.image);
-    const imageRef = await ref(storage, `/blogImages/${data.uid + v4()}`);
+    const randomID = data.uid + v4();
+    const imageRef = await ref(storage, `/blogImages/${randomID}`);
     await uploadBytes(imageRef, data.image);
-    const blogData = await addDoc(collection(db, `blogs`), {
+    const blogData = await setDoc(doc(db, "blogs", randomID), {
       title: data.title,
       description: data.description,
       img_urn: await getDownloadURL(imageRef),
@@ -42,6 +43,12 @@ export const UploadBlog = async (data, dispatch, navigate) => {
       likes: [],
       likeCount: 0,
       timeStamp: serverTimestamp(),
+    });
+
+    await setDoc(doc(db, "notification", randomID), {
+      message: `${data.authorInfo.displayName} has Posted a new blog of Category ${data.category}`,
+      blogID: randomID,
+      recievers: data?.followers || [],
     });
     dispatch(UploadBlogSuccess());
 
