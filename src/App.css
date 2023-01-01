@@ -1314,8 +1314,6 @@ a.active {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: #e4e1e1;
-  border-radius: 10px;
   gap: 5px;
   padding: 5px;
   overflow: scroll;
@@ -1325,8 +1323,8 @@ a.active {
 .BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .BlogDetailsContainer .commentsContainer .commentBoxContainer .commentBox {
   margin-top: 20px;
   padding: 10px;
-  border-radius: 0px;
-  background-color: #fff7f7;
+  border-radius: 30px;
+  background-color: #e4e1e1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1378,13 +1376,15 @@ a.active {
 }
 
 .BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .BlogDetailsContainer .commentsContainer .commentBoxContainer .commentBox .comment {
+  margin-left: 10px;
   padding-left: 10px;
 }
 
 .BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .BlogDetailsContainer .commentsContainer .commentBoxContainer .commentBox .comment pre {
   white-space: pre-wrap;
   font-family: inherit;
-  color: #866767;
+  color: black;
+  font-size: large;
 }
 
 @media only screen and (max-width: 1050px) {

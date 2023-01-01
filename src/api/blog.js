@@ -16,6 +16,9 @@ import {
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { v4 } from "uuid";
 import {
+  blogLikeError,
+  blogLikeStart,
+  blogLikeSuccess,
   FetchBlogError,
   FetchBlogStart,
   FetchBlogSuccess,
@@ -41,6 +44,7 @@ export const UploadBlog = async (data, dispatch, navigate) => {
       authorID: data.uid,
       authorInfo: data.authorInfo,
       likes: [],
+      comments: [],
       likeCount: 0,
       timeStamp: serverTimestamp(),
     });
@@ -119,5 +123,33 @@ export const UpdateBlog = async (data, dispatch, navigate) => {
   } catch (error) {
     dispatch(UploadBlogError(error.response));
     console.log(error);
+  }
+};
+
+export const LikeTheBlog = async (data, dispatch) => {
+  dispatch(blogLikeStart());
+  try {
+    await updateDoc(doc(db, "blogs", data?.id), {
+      likeCount: data.likeCount,
+      likes: data.likes,
+    });
+    dispatch(blogLikeSuccess());
+  } catch (error) {
+    console.log(error);
+    dispatch(blogLikeError(error.response));
+  }
+};
+
+export const CommentOnBlog = async (data, dispatch) => {
+  dispatch(blogLikeStart());
+  try {
+    console.log(data.comments);
+    await updateDoc(doc(db, "blogs", data?.id), {
+      comments: data.comments,
+    });
+    dispatch(blogLikeSuccess());
+  } catch (error) {
+    console.log(error);
+    dispatch(blogLikeError(error.response));
   }
 };

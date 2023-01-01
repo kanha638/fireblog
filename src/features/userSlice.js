@@ -125,6 +125,18 @@ export const userSlice = createSlice({
     BlogsUpdater: (state, action) => {
       state.Blogs = action.payload;
     },
+    blogLikeStart: (state) => {
+      state.isPending = true;
+      state.isErrors = false;
+    },
+    blogLikeSuccess: (state) => {
+      state.isErrors = false;
+      state.isPending = false;
+    },
+    blogLikeError: (state, action) => {
+      state.isErrors = true;
+      state.isPending = false;
+    },
   },
 });
 
@@ -151,6 +163,9 @@ export const {
   FetchBlogStart,
   FetchBlogSuccess,
   BlogsUpdater,
+  blogLikeError,
+  blogLikeStart,
+  blogLikeSuccess,
 } = userSlice.actions;
 export const UserState = (state) => state.user;
 export const selectUser = (state) => state.user.userInfo;

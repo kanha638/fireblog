@@ -20,3 +20,7 @@ export const sortByTimeStamp = (arr) => {
   BlogsUpdater(value);
   return value;
 };
+
+export const checkIfPresentInArray = (arr, val) => {
+  return arr.includes(val);
+};
