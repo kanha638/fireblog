@@ -2,6 +2,9 @@
 
 Serverless Blog app with firebase
 
+#URL Of the Application 
+[https://fireblog-c7e8f.web.app/](https://fireblog-c7e8f.web.app/)
+
 ### `npm start`
 
 Runs the app in the development mode.\
