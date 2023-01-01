@@ -1263,6 +1263,7 @@ a.active {
 .BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .BlogDetailsContainer {
   padding-top: 20px;
   width: 100%;
+  cursor: pointer;
 }
 
 .BlogDescriptionContainer .MainBlogDisplayContainer .wholeblogcontainer .BlogDetailsContainer img {
@@ -1314,6 +1315,9 @@ a.active {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   gap: 5px;
   padding: 5px;
   overflow: scroll;

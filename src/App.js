@@ -44,7 +44,10 @@ function App() {
           <Router>
             <Navbar />
             <Routes>
-              <Route path="/*" element={<Home />} />
+              <Route
+                path="/*"
+                element={userState.isLoggedIn ? <Home /> : <Auth />}
+              />
               <Route
                 path="/auth"
                 element={userState.isLoggedIn ? <Home /> : <Auth />}

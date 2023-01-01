@@ -24,16 +24,19 @@ const Auth = () => {
   const changeHandlerSignUp = (e) => {
     setSignUpForm({ ...signUpForm, [e.target.name]: e.target.value });
   };
+  const path = document.location.pathname;
   const submitHandlerSignUp = async (e) => {
     e.preventDefault();
-    await SignUp(signUpForm, dispatch, navigate);
+    await SignUp(signUpForm, dispatch);
+    navigate("/");
   };
   const changeHandlerSignIn = (e) => {
     setSignInForm({ ...signInForm, [e.target.name]: e.target.value });
   };
   const submitHandlerSignIn = async (e) => {
     e.preventDefault();
-    await SignIn(signInForm, dispatch, navigate);
+    await SignIn(signInForm, dispatch);
+    navigate("/");
   };
   return (
     <>
@@ -79,6 +82,10 @@ const Auth = () => {
                 placeholder="Confirm Password"
                 onChange={changeHandlerSignUp}
               />
+              {userState?.isError && (
+                <span style={{ color: "red" }}> Some Error Occured</span>
+              )}
+
               <button
                 style={{ marginTop: "15px" }}
                 type="submit"
@@ -111,6 +118,13 @@ const Auth = () => {
                 onChange={changeHandlerSignIn}
               />
               <a>Forgot your password?</a>
+              {userState?.isError && (
+                <span style={{ color: "red" }}>
+                  {" "}
+                  Login Credintials Not Valid
+                </span>
+              )}
+
               <button type="submit" disabled={userState?.isPending}>
                 Sign In
               </button>
@@ -135,6 +149,7 @@ const Auth = () => {
                   Sign In
                 </button>
               </div>
+
               <div className="overlay-panel overlay-right">
                 <h1>Hello, Friend!</h1>
                 <p>Enter your personal details and start journey with us</p>

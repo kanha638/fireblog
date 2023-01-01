@@ -966,6 +966,7 @@ a.active {
       .BlogDetailsContainer {
         padding-top: 20px;
         width: 100%;
+        cursor: pointer;
 
         img {
           width: 100%;
@@ -1009,28 +1010,20 @@ a.active {
             margin-top: 20px;
             display: flex;
             flex-direction: column;
-
-            // border-radius: 30px;
+            justify-content: center;
+            // align-items: center;
             gap: 5px;
             padding: 5px;
             overflow: scroll;
             margin-bottom: 140px;
 
             .commentBox {
-              // padding: 10px;
-              // padding-top: 20px;
-              // width: 95%;
-              // border: solid 2px black;
               margin-top: 20px;
               padding: 10px;
-
               border-radius: 30px;
               background-color: rgb(228, 225, 225);
-              // border-radius: 50px 20px;
 
               display: flex;
-              // justify-content: space-between;
-              // align-items: center;
 
               .userInfo1Container {
                 height: 100%;

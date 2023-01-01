@@ -32,7 +32,7 @@ import {
 import { v4 } from "uuid";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
-export const SignUp = async (data, dispatch, navigate) => {
+export const SignUp = async (data, dispatch, location, navigate) => {
   dispatch(SignUpStart());
   try {
     // Creating a User After Clicking the signup
@@ -68,14 +68,18 @@ export const SignUp = async (data, dispatch, navigate) => {
     console.log(result1);
 
     dispatch(SignInSuccess(result1));
-    navigate("/");
+    if (location === "auth") {
+      navigate("/");
+    } else {
+      navigate(location);
+    }
   } catch (error) {
     dispatch(SignUpError(error.response));
     console.log(error);
   }
 };
 
-export const SignIn = async (data, dispatch, navigate) => {
+export const SignIn = async (data, dispatch, location, navigate) => {
   dispatch(SignInStart());
   try {
     const userData = await signInWithEmailAndPassword(
@@ -89,16 +93,8 @@ export const SignIn = async (data, dispatch, navigate) => {
     result1 = { ...result1, description: result.description };
     result1 = { ...result1, followers: result.followers };
     result1 = { ...result1, following: result.following };
-    console.log(result1);
-
     dispatch(SignInSuccess(result1));
-
-    console.log(document.location.pathname);
-    if (document.location.pathname === "auth") {
-      navigate("/");
-    } else {
-      navigate(document.location.pathname);
-    }
+    navigate("/");
   } catch (error) {
     dispatch(SignInError(error.response));
     console.log(error);
