@@ -7,7 +7,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { Link, useParams, useSearchParams } from "react-router-dom";
 import { sortByLikeCount, sortByTimeStamp } from "../utility/Filters";
 
-const BlogList = ({ category }) => {
+const BlogList = () => {
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
   const userState = useSelector(UserState);
@@ -18,6 +18,10 @@ const BlogList = ({ category }) => {
   const [AllBlogs, setAllBlogs] = useState(userState?.Blogs);
   const [searchParams, setSearchParams] = useSearchParams();
   const [flag, setFLag] = useState(false);
+  const category =
+    document.location.pathname === "/"
+      ? null
+      : document.location.pathname.slice(1);
   const fetchBlog = async () => {
     await fetchBlogs(
       {

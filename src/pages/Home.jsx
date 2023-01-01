@@ -58,21 +58,12 @@ const Home = () => {
 
         <Routes>
           <Route path="/" element={<BlogList />} />
-          <Route path="/sports" element={<BlogList category={"sports"} />} />
-          <Route
-            path="/politics"
-            element={<BlogList category={"politics"} />}
-          />
-          <Route
-            path="/technology"
-            element={<BlogList category={"technology"} />}
-          />
-          <Route
-            path="/bollywood"
-            element={<BlogList category={"bollywood"} />}
-          />
-          <Route path="/music" element={<BlogList category={"music"} />} />
-          <Route path="/health" element={<BlogList category={"health"} />} />
+          <Route path="/sports" element={<BlogList />} />
+          <Route path="/politics" element={<BlogList />} />
+          <Route path="/technology" element={<BlogList />} />
+          <Route path="/bollywood" element={<BlogList />} />
+          <Route path="/music" element={<BlogList />} />
+          <Route path="/health" element={<BlogList />} />
         </Routes>
       </Box>
 
