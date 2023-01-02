@@ -27,20 +27,16 @@ function App() {
       setLoading(false);
     }
     onAuthStateChanged(auth, (user) => {
-      if (user) {
-        console.log("User is logged IN");
-      } else {
-        console.log("No User Logged In");
+      if (!user) {
         localStorage.clear();
+        SetLoggedInUser(false);
       }
-      SetLoggedInUser(true);
     });
   }, []);
   return (
     <>
       {!loading && (
         <div className="App">
-          {/* <pre>{auth}</pre> */}
           <Router>
             <Navbar />
             <Routes>
@@ -62,7 +58,6 @@ function App() {
                 element={userState.isLoggedIn ? <CreateBlog /> : <Auth />}
               />{" "}
               <Route path="/user/:id/*" element={<Profile />} />
-              {/* <Route path="/*" element={<Error404 />} /> */}
             </Routes>
 
             <Footer />
