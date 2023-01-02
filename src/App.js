@@ -20,7 +20,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const userState = useSelector(UserState);
   useEffect(() => {
-    console.log("app loading");
+    // console.log("app loading");
     const loader = document.getElementById("loading");
     if (loader) {
       loader.style.display = "none";
